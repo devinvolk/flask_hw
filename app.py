@@ -18,14 +18,14 @@ def pokemon():
         response = requests.get(url)
         pokedex = []
         if response.ok:
-            pokemon_dict = {}
-            pokemon_dict[name] = {
+            pokemon_dict= {
+                'Name': name,
                 'Ability': response.json()['abilities'][0]['ability']['name'],
                 'Base Experience': response.json()['base_experience'],
                 'Front Shiny': response.json()['sprites']['front_shiny'],
-                'Attack Base State': response.json()['stats'][1]['base_stat'],
-                'HP': response.json()['stats'][0]['base_stat'],
-                'Defense': response.json()['stats'][2]['base_stat']
+                'Attack Base Stat': response.json()['stats'][1]['base_stat'],
+                'HP Base Stat': response.json()['stats'][0]['base_stat'],
+                'Defense Base Stat': response.json()['stats'][2]['base_stat']
         }   
             pokedex.append(pokemon_dict)
             print(pokedex)

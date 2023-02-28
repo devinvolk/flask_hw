@@ -15,7 +15,32 @@
 
 {% if pokedex %}
 
-<p> {{pokedex}} </p>
+<table class="table table-striped table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Ability</th>
+        <th scope="col">Base Experience</th>
+        <th scope="col">Attack Base Stat</th>
+        <th scope="col">HP Base Stat</th>
+        <th scope="col">Defense Base Stat</th>
+        <th scope="col">Image</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for pokemon in pokedex %}
+            <tr>
+            <th scope="row">{{pokemon['Name']}}</th>
+            <td>{{pokemon['Ability']}}</td>
+            <td>{{pokemon['Base Experience']}}</td>
+            <td>{{pokemon['Attack Base Stat']}}</td>
+            <td>{{pokemon['HP Base Stat']}}</td>
+            <td>{{pokemon['Defense Base Stat']}}</td>
+            <td><image src="{{pokemon['Front Shiny']}}"></image></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
 
 {% endif %}
 
