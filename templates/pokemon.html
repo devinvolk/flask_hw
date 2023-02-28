@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Pokemon Form</h1>
+<form action="/home" method="POST">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="alphabet" name="name" class="form-control" id="name">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+    <div style="color: blue">
+      <small>{{error}}</small>
+    </div>
+</form>
+
+{% if pokedex %}
+
+<div> {{pokedex}} </div>
+
+<!-- <table class="table table-striped table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Ability</th>
+        <th scope="col">Base Experience</th>
+        <th scope="col">Attack Base Stat</th>
+        <th scope="col">HP Base Stat</th>
+        <th scope="col">Defense Base Stat</th>
+        <th scope="col">Image</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for pokemon in pokedex %}
+            <tr>
+            <th scope="row">{{pokemon[]}}</th>
+            <td>{{name['Ability']}}</td>
+            <td>{{name['Base Experience']}}</td>
+            <td>{{name['Attack Base Stat']}}</td>
+            <td>{{name['HP']}}</td>
+            <td>{{name['Defense']}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table> -->
+{% endif %}
+
+{% endblock %}
