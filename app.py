@@ -10,12 +10,14 @@ def home():
 
 @app.route('/pokemon', methods=['GET', 'POST'])
 def pokemon():
+    print(request.method)
     if request.method == 'POST':
         name = request.form.get('name')
+        print(name)
         url = f'https://pokeapi.co/api/v2/pokemon/{name}'
         response = requests.get(url)
+        pokedex = []
         if response.ok:
-            pokedex = []
             pokemon_dict = {}
             pokemon_dict[name] = {
                 'Ability': response.json()['abilities'][0]['ability']['name'],
@@ -26,6 +28,7 @@ def pokemon():
                 'Defense': response.json()['stats'][2]['base_stat']
         }   
             pokedex.append(pokemon_dict)
+            print(pokedex)
             return render_template('pokemon.html', pokedex=pokedex)
         else:
             error = 'That Pokemon is not in our database.'    
