@@ -3,11 +3,12 @@
 {% block content %}
 <h1>Pokemon Form</h1>
 <form action="/pokemon" method="POST">
+      {{form.hidden_tag()}}
     <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" name="name" class="form-control" id="name">
+      {{form.name.label}}
+      {{form.name(class="form-control")}}
     </div>
-    <button type="submit" class="btn btn-primary">Search</button>
+    {{form.submit_btn}}
     <div style="color: blue">
       <small>{{error}}</small>
     </div>
