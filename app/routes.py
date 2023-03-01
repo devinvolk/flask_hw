@@ -1,11 +1,25 @@
 from flask import render_template, request
 import requests
-from app.forms import PokeSearch
+from app.forms import PokeSearch, LoginForm
 from app import app
 
 @app.route('/', methods=['GET'])
 def home():
     return render_template('Home.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if request.method == 'POST' and form.validate_on_submit():
+        email = form.email.data.lower()
+        password = form.password.data
+        if email in app.config.get('REGISTERED_USERS') and password == app.config.get('REGISTERED_USERS').get(email).get('password'):
+            return f'Successfully logged in! Hello, {app.config.get("REGISTERED_USERS").get(email).get("name")}'
+        else:
+            error = 'Invalid login'
+            return error
+    print('Not validated')
+    return render_template('login.html', form=form)
 
 @app.route('/pokemon', methods=['GET', 'POST'])
 def pokemon():
