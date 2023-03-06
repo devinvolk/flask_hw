@@ -1,0 +1,40 @@
+.form-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    width: 100%;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    text-align: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-content: center;
+}
+
+.form-label {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.form-btn {
+    margin-top: 0.5em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+}
+
+.form-btn, .form-label {
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    font-weight: 500;
+}
