@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import SubmitField, StringField, PasswordField, EmailField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, EqualTo
+from app.models import User 
 
 class PokeSearch(FlaskForm):
     name = StringField('Name:')
@@ -15,5 +16,6 @@ class SignUp(FlaskForm):
     first_name = StringField('First Name:')
     last_name = StringField('Last Name:')
     email = EmailField('Email:', validators=[DataRequired()])
-    password = PasswordField('Passwrord:', validators=[DataRequired()])
+    password = PasswordField('Password:', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password:', validators=[DataRequired(), EqualTo('password')])
     submit_btn = SubmitField('Sign Up')

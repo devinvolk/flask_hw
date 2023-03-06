@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+{% block title %}
+Pokemon
+{% endblock %}
+
 <h1>Pokemon Form</h1>
 <form action="/pokemon" method="POST">
       {{form.hidden_tag()}}
