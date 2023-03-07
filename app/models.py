@@ -26,6 +26,12 @@ class User(UserMixin, db.Model):
         self.email = data['email']
         self.password = self.hash_password(data['password'])
     
+    #for modifying user data in the db
+    def update_from_dict(self, data):
+        self.first_name = data['first_name']
+        self.last_name = data['last_name']
+        self.email = data['email']
+
     # Save the user to database
     def save_to_db(self):
         db.session.add(self)

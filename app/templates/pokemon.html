@@ -1,20 +1,23 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/pokemon.css')}}">
+{% endblock %}
 
 {% block title %}
 Pokemon
 {% endblock %}
 
-<h1>Pokemon Form</h1>
+{% block content %}
+<h1>Pokemon Selector</h1>
 <form action="/pokemon" method="POST">
       {{form.hidden_tag()}}
     <div class="form-group">
-      {{form.name.label}}
+      {{form.name.label(class="form-label")}}
       {{form.name(class="form-control")}}
     </div>
-    {{form.submit_btn}}
-    <div style="color: blue">
+    {{form.submit_btn(class="form-btn")}}
+    <div style="color: red">
       <small>{{error}}</small>
     </div>
 </form>

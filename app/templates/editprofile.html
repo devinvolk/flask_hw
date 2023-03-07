@@ -5,11 +5,11 @@
 {% endblock %}
 
 {% block title %}
-Sign Up
+Edit Profile
 {% endblock %}
 
 {% block content %}
-<form action="{{url_for('auth.signup')}}" method="POST" class="form-signup">
+<form action="{{url_for('auth.editprofile')}}" method="POST" class="form-signup">
     {{form.hidden_tag()}}
     <div class="form-group">
         {{form.first_name.label(class="form-label")}}
@@ -22,14 +22,6 @@ Sign Up
     <div class="form-group">
       {{form.email.label(class="form-label")}}
       {{form.email(class='form-control')}}
-    </div>
-    <div class="form-group">
-      {{form.password.label(class="form-label")}}
-      {{form.password(class='form-control')}}
-    </div>
-    <div class="form-group">
-        {{form.confirm_password.label(class="form-label")}}
-        {{form.confirm_password(class='form-control')}}
     </div>
     {{form.submit_btn(class='btn btn-primary')}}
     <div style="color:red">
