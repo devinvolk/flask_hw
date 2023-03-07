@@ -67,7 +67,7 @@ def editprofile():
             #add changes to db
             current_user.update_from_dict(new_user_data)
             current_user.save_to_db()
-            flash('Profile updated!')
+            flash('Profile updated!', 'success')
             return redirect(url_for('main.home'))
 
     return render_template('editprofile.html', form=form)
