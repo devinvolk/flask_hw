@@ -5,7 +5,6 @@ from app.models import User
 
 class PokeSearch(FlaskForm):
     name = StringField('Name:')
-    submit_btn = SubmitField('Search')
 
 class LoginForm(FlaskForm):
     email = EmailField('Email:', validators=[DataRequired()])

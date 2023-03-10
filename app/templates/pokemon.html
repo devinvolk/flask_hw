@@ -16,7 +16,7 @@ Pokemon
       {{form.name.label(class="form-label")}}
       {{form.name(class="form-control")}}
     </div>
-    {{form.submit_btn(class="form-btn")}}
+    <input type="submit" name="submit-btn" value="Search">
     <div style="color: red">
       <small>{{error}}</small>
     </div>
@@ -50,6 +50,7 @@ Pokemon
         {% endfor %}
     </tbody>
   </table>
+  <a href="{{url_for('main.catch', name=pokedex[0]['Name'])}}" class="btn">Catch</a>
 
 {% endif %}
 
