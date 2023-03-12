@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/pokemon.css')}}">
+{% endblock %}
+
+{% block title %}
+Your Team
+{% endblock %}
+
+{% block content %}
+
+{% if current_user.team %}
+
+<table class="table table-striped table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Ability</th>
+        <th scope="col">Base Experience</th>
+        <th scope="col">Attack Base Stat</th>
+        <th scope="col">HP Base Stat</th>
+        <th scope="col">Defense Base Stat</th>
+        <th scope="col">Image</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for pokemon in current_user.team %}
+            <tr>
+            <th scope="row">{{pokemon.pokemon_name}}</th>
+            <td>{{pokemon.ability}}</td>
+            <td>{{pokemon.base_experience}}</td>
+            <td>{{pokemon.attack_base_stat}}</td>
+            <td>{{pokemon.hp_base_stat}}</td>
+            <td>{{pokemon.defense_base_stat}}</td>
+            <td><image src="{{pokemon.front_shiny}}" alt="{{pokemon.pokemon_name}}"></image></td>
+            <td><a href="{{url_for('main.release', name=pokemon.pokemon_name)}}" class="btn btn-primary">Release</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+{% endif %}
+
+{% endblock %}

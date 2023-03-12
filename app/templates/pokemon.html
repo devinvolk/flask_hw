@@ -45,12 +45,12 @@ Pokemon
             <td>{{pokemon['Attack Base Stat']}}</td>
             <td>{{pokemon['HP Base Stat']}}</td>
             <td>{{pokemon['Defense Base Stat']}}</td>
-            <td><image src="{{pokemon['Front Shiny']}}"></image></td>
+            <td><image src="{{pokemon['Front Shiny']}}" alt="{{pokemon['Name']}}"></image></td>
             </tr>
         {% endfor %}
     </tbody>
   </table>
-  <a href="{{url_for('main.catch', name=pokedex[0]['Name'])}}" class="btn">Catch</a>
+  <a href="{{url_for('main.catch', name=pokedex[0]['Name'])}}" class="btn btn-primary">Catch</a>
 
 {% endif %}
 

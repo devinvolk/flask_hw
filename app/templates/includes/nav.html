@@ -8,16 +8,19 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             {% if current_user.is_authenticated %}
             <li class="nav-item">
+              <a class="nav-link" href="#">Hello, {{current_user.first_name}}!</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{url_for('main.home')}}">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url_for('main.pokemon')}}">Pokemon</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url_for('auth.logout')}}">Logout</a>
+              <a class="nav-link" href="{{url_for('main.team')}}">Your Team</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Hello, {{current_user.first_name}}!</a>
+              <a class="nav-link" href="{{url_for('auth.logout')}}">Logout</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url_for('auth.editprofile')}}">Edit Profile</a>
