@@ -70,11 +70,11 @@ class User(UserMixin, db.Model):
         else:
             return True
 
-    def max_attack(self, pokemon):
-        max_attack = 0
+    def max_attack(self):
+        attack = 0
         for pokemon in self.team:
-            max_attack += int(pokemon.attack)
-            return max_attack
+            attack += pokemon.attack_base_stat
+        return attack
             
     # Use this method to register our user attributes
     def from_dict(self, data):

@@ -95,3 +95,21 @@ def release(name):
             current_user.remove_pokemon(pokemon)
     flash(f'{name} was removed from your team', 'success')
     return redirect(url_for('main.team'))
+
+@main.route('/battle', methods=['GET', 'POST'])
+@login_required
+def battle():
+    users = User.query.all()
+    return render_template('battle.html', users=users)
+
+@main.route('/fight/<int:id>', methods=['GET', 'POST'])
+@login_required
+def fight(id):
+    opponent = User.query.get(id)
+    print(opponent.max_attack(), current_user.max_attack())
+    if current_user.max_attack() >= opponent.max_attack():
+        flash('You have won the battle!', 'success')
+    else:
+        flash('You were defeated. Please make some changes to your team and try again', 'danger')
+        return redirect(url_for('main.battle'))
+    return redirect(url_for('main.battle'))
