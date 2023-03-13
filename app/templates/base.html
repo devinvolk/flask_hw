@@ -14,7 +14,7 @@
     {% endblock %}
     <title>Flask App - {% block title %}{% endblock %}</title>
 </head>
-<body>
+<body class="background">
   {% include './includes/nav.html' %}
 
     {% with messages = get_flashed_messages(with_categories=true) %}

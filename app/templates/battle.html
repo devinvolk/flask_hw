@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block css %}
-<link rel="stylesheet" href="{{url_for('static', filename='css/pokemon.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/battle.css')}}">
 {% endblock %}
 
 {% block title %}
@@ -16,6 +16,7 @@ Battle!
     <thead>
         <tr>
             <th scope="col">{{user.first_name}}</th>
+            <th><a href="{{url_for('main.fight', id=user.id)}}" class="btn btn-danger">Battle!</a></th>
         </tr>
       <tr>
         <th scope="col">Name</th>
@@ -25,7 +26,6 @@ Battle!
         <th scope="col">HP Base Stat</th>
         <th scope="col">Defense Base Stat</th>
         <th scope="col">Image</th>
-        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -39,7 +39,6 @@ Battle!
             <td>{{pokemon.defense_base_stat}}</td>
             <td><image src="{{pokemon.front_shiny}}" alt="{{pokemon.pokemon_name}}"></image></td>
         {% endfor %}
-            <td><a href="{{url_for('main.fight', id=user.id)}}" class="btn btn-danger">Battle!</a></td>
             </tr>
     </tbody>
   </table>

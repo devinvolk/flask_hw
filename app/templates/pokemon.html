@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block title %}
-Pokemon
+Pokemon Selector
 {% endblock %}
 
 {% block content %}
@@ -16,7 +16,7 @@ Pokemon
       {{form.name.label(class="form-label")}}
       {{form.name(class="form-control")}}
     </div>
-    <input type="submit" name="submit-btn" value="Search">
+    <input type="submit" name="submit-btn" class="btn btn-primary form-btn" value="Search">
     <div style="color: red">
       <small>{{error}}</small>
     </div>
